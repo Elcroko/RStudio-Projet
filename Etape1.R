@@ -1,4 +1,4 @@
-# Projet Data Exploration- Etape 1 - Préparation des données de délinquance départementale (2024)
+# Projet Data Exploration - Etape 1 - Préparation des données de délinquance départementale (2024)
 
 library(readr)   # import de données
 library(dplyr)   # manipulation de données
