@@ -1,7 +1,7 @@
 # Projet Data Exploration - Etape 1 - Préparation des données de délinquance départementale (2024)
 
 library(readr)   # import de données
-library(dplyr)   # manipulation de données
+library(dplyr)   # manipulation de données 
 library(tidyr)   # passage long -> large
 
 # 1. Import du fichier départemental (format CSV séparé par ';')
