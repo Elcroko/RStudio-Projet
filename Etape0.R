@@ -34,9 +34,20 @@ delinq_2024_wide <- delinq_2024_inf %>%
     values_from = taux_pour_mille  # valeur = taux correspondant
   )
 
+# 5. Création de l'indicateur global de délinquance
+delinq_2024_wide <- delinq_2024_wide %>%
+  mutate(
+    delinq_global = `Vols avec armes` +
+      `Vols violents sans arme` +
+      `Cambriolages de logement` +
+      `Destructions et dégradations volontaires`
+  )
+
+
+
 # Vérification du tableau final
 names(delinq_2024_wide)
 head(delinq_2024_wide)
 
-# 5. Export du fichier propre pour le reste du projet
+# 6. Export du fichier propre pour le reste du projet
 write_csv(delinq_2024_wide, "delinquance_dep_clean_2024.csv")
