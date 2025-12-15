@@ -39,10 +39,27 @@ fviz_pca_var(res.pca, col.var = "cos2",
              title = "Cercle des Corrélations (Type de délinquance)")
 
 # 3. Carte des individus
-fviz_pca_ind(res.pca, geom = c("point", "text"),
+fviz_pca_ind(res.pca,
+             # 1. AFFICHER LES NUMÉROS
+             geom = c("point", "text"), # "point" met le point, "text" met le numéro du dept
+             
+             # 2. GÉRER L'AFFICHAGE
+             repel = TRUE,              # Indispensable : Évite que les textes se chevauchent
+             labelsize = 3,             # Taille du texte (3 ou 4 c'est bien)
+             
+             # 3. COULEURS (Cos2 = Qualité de représentation)
              col.ind = "cos2", 
              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
-             repel = TRUE, # Evite le chevauchement (peut prendre qques secondes)
-             labelsize = 3,
-             title = "Carte des Départements")
+             
+             # 4. LÉGENDES ET AXES (C'est ici qu'on personnalise !)
+             title = "Typologie des Départements (2024)",
+             legend.title = "Qualité (Cos2)",
+             
+             # On remplace "Dim1" par ton interprétation
+             xlab = paste0("Axe 1 : Intensité Criminelle (", round(res.pca$eig[1,2], 1), "%)"),
+             
+             # On remplace "Dim2" par ton interprétation
+             ylab = paste0("Axe 2 : Nature (Violence / Vols) (", round(res.pca$eig[2,2], 1), "%)")
+)
+
 
